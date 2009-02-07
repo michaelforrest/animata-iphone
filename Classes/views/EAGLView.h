@@ -20,7 +20,7 @@ The view content is basically an EAGL surface you render your OpenGL scene into.
 Note that setting the view non-opaque will only work if the EAGL surface has an alpha channel.
 */
 @interface EAGLView : UIView {
-
+	CGFloat viewportWidth;
 @protected
     /* The pixel dimensions of the backbuffer */
     GLint backingWidth;
@@ -37,10 +37,10 @@ Note that setting the view non-opaque will only work if the EAGL surface has an 
     NSTimeInterval animationInterval;
 	GLuint imageTexture;
 		
-	CGFloat viewportWidth;
+
 
 }
-
+@property (nonatomic) CGFloat viewportWidth;
 @property NSTimeInterval animationInterval;
 
 -(void)startAnimation;

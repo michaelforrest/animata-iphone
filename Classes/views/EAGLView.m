@@ -28,7 +28,7 @@
 
 @implementation EAGLView
 
-@synthesize context, animationTimer, animationInterval;
+@synthesize context, animationTimer, animationInterval, viewportWidth;
 
 // You must implement this method
 + (Class)layerClass {
@@ -65,7 +65,7 @@
 	// Sets up matrices and transforms for OpenGL ES
 	glViewport(0, 0, backingWidth, backingHeight);
 
-	[self setCameraToPortrait: YES];
+	
 	glClearColor(1.0f, 1.0f,1.0f, 1.0f);
 	
 // Enable use of the texture(s?)
@@ -79,12 +79,9 @@
 	
 }	
 -(void) setCameraToPortrait:(Boolean) portrait {
-	viewportWidth = 800.0f;
 	
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();	
-	
-	
 	// 3:2 aspect ratio!
 	if(portrait){
 		glOrthof(-viewportWidth/2, viewportWidth/2, viewportWidth * 0.75, -viewportWidth * 0.75,  -0.0f, 10.0f);	
