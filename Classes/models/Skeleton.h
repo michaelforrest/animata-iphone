@@ -14,7 +14,7 @@
  ************************************************/
 // would prefer a more encapsulated way of doing this, but I suppose I 
 // can justify this in the context of a relatively simple application..
-NSMutableArray * allBones;
+
 
 @interface Skeleton : Node {
 	Mesh * mesh;
@@ -29,7 +29,7 @@ NSMutableArray * allBones;
 -(void) addBone: (NSDictionary*)attributeDict;
 -(void) simulate:(NSInteger)times;
 
-+(void) animateBone: (NSString *) boneName value:(CGFloat) value;
+
 @end
 
 /************************************************

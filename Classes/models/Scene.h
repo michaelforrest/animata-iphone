@@ -14,6 +14,7 @@
 	
 	NSXMLParser * parser;
 	Layer *root;
+	NSMutableArray * allBones;
 }
 
 
@@ -22,5 +23,5 @@
 
 -(Scene*) initWithXMLParser:(NSXMLParser*) xmlParser;
 -(void) parseXML;
-
+-(void) animateBone: (NSString *) boneName value:(CGFloat) value;
 @end

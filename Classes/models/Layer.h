@@ -15,7 +15,7 @@
 #import "Vector3D.h"
 
 @interface Layer : Node {
-	
+
 	NSMutableArray * layers;
 	NSString * name;
 	Texture * texture;	
@@ -42,10 +42,13 @@
 
 -(void)addAttributes:(NSDictionary *)attributeDict;
 -(void) simulate;
+-(void) grabBones:(NSMutableArray*)allBones;
+
 
 // private..
 -(void) addTexture: (NSDictionary*)attributeDict;
 -(void) addLayer: (NSDictionary*)attributeDict;
 -(void) addMesh: (NSDictionary*)attributeDict;
 -(void) addSkeleton: (NSDictionary*)attributeDict;
+
 @end

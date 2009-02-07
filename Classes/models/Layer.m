@@ -12,6 +12,15 @@
 
 @synthesize layers, name,position,alpha,scale,texture,mesh,skeleton; 
 
+-(void) grabBones:(NSMutableArray*)allBones{
+		for (Bone*bone in skeleton.bones) {
+			[allBones addObject:bone];
+		}
+	for(Layer * subLayer in layers){
+		[subLayer grabBones:allBones];
+	}
+}
+
 -(void) addAttributes:(NSDictionary *)attributeDict {
 	self.layers = [[NSMutableArray alloc] init];
 	self.name = [attributeDict objectForKey:@"name"];

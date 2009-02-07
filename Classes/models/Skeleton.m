@@ -41,9 +41,7 @@
 	[bone addAttributes:attributeDict	joints:self.joints];
 	[bone giveParserFocus:self.parser parent:self type:@"bone"];
 	[bones addObject:bone];
-	if(allBones == nil) allBones = [[NSMutableArray alloc] init];
-	[allBones addObject:bone];
-	
+		
 }
 
 -(void) simulate: (NSInteger) times{
@@ -56,13 +54,7 @@
 	}
 }
 
-+(void) animateBone: (NSString *) boneName value:(CGFloat) value{
-	for(Bone * aBone in allBones){
-		if([aBone.name isEqual: boneName]){
-			[aBone animateScale:value];
-		}
-	}
-}
+
 
 
 @end

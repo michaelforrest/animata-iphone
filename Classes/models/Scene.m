@@ -17,6 +17,8 @@
 -(Scene*) initWithXMLParser:(NSXMLParser*) xmlParser {
 	[super init];
 	self.parser = xmlParser;
+	allBones = [[NSMutableArray alloc] init];
+	
 	return self;
 }
 
@@ -58,9 +60,19 @@
  qualifiedName:(NSString *)qName {
 	
 	if([elementName isEqualToString:@"animata"]) {
+		[self.root grabBones: allBones];
 		return;
 	}
 	
+}
+
+
+-(void) animateBone: (NSString *) boneName value:(CGFloat) value{
+	for(Bone * aBone in allBones){
+		if([aBone.name isEqual: boneName]){
+			[aBone animateScale:value];
+		}
+	}
 }
 
 @end
