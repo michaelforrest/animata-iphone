@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Skeleton.h"
 @class Layer;
 
 @interface Scene : NSObject {
@@ -23,5 +23,6 @@
 
 -(Scene*) initWithXMLParser:(NSXMLParser*) xmlParser;
 -(void) parseXML;
+-(Bone*) findBone: (NSString *) boneName;
 -(void) animateBone: (NSString *) boneName value:(CGFloat) value;
 @end

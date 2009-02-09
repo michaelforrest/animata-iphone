@@ -65,11 +65,19 @@
 	}
 	
 }
-
+-(Bone*) findBone: (NSString *) boneName {
+	for(Bone * aBone in allBones){
+		if([aBone.name isEqual: boneName]){
+			return aBone;
+		}
+	}
+	return nil;
+}
 
 -(void) animateBone: (NSString *) boneName value:(CGFloat) value{
 	for(Bone * aBone in allBones){
 		if([aBone.name isEqual: boneName]){
+			aBone.tempo = 0;
 			[aBone animateScale:value];
 		}
 	}

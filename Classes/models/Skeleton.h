@@ -70,6 +70,8 @@
 	CGFloat size;
 	CGFloat radius;
 	CGFloat falloff;
+	CGFloat targetScale;
+	CGFloat scaleIncrement;
 }
 @property (nonatomic, retain) Mesh * mesh;
 @property (nonatomic, retain) Joint * j0;
@@ -90,6 +92,7 @@
 -(void) addVertex: (NSDictionary*) attributeDict vertices:(NSMutableArray *) allVertices;
 -(void) simulate;
 -(void) animateScale: (CGFloat) t;
+-(void) animateScale: (CGFloat) target frames:(CGFloat) frames;
 -(void) translateVertices;
 
 @end

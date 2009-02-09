@@ -99,6 +99,7 @@
 	self.radius = [[attributeDict objectForKey:@"radius"] floatValue];
 	self.name =  [attributeDict objectForKey:@"name"];
 	self.falloff = 1.0f;
+	scaleIncrement = 0;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName 
@@ -125,6 +126,11 @@
 		time += tempo / 42.0f;
 		[self animateScale: 0.5f + sin(time) * 0.5f];
 	}
+	if(scaleIncrement != 0){
+		scale += scaleIncrement;
+		if( abs(scale - targetScale) < 0.001) scaleIncrement = 0;
+			
+	}
 	CGFloat dx = j1.position.x - j0.position.x;
 	CGFloat dy = j1.position.y - j0.position.y;
 	CGFloat dCurrent = sqrt(dx*dx + dy*dy);
@@ -140,9 +146,13 @@
 	if (j1.fixed == NO )	[self.j1 moveX: m*dx y: m*dy];
 	
 } 
-
--(void) animateScale: (CGFloat) t{
+-(void) animateScale: (CGFloat) target frames:(CGFloat) frames{
+	
 	tempo = 0;
+	scaleIncrement = (target - scale) / frames;
+	targetScale = minScale + ((maxScale- minScale) * target);
+}
+-(void) animateScale: (CGFloat) t{
 	scale = minScale + ((maxScale- minScale) * t);
 }
 	
