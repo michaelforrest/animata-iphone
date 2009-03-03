@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Mesh.h"
 #import "Node.h"
+#import "Animator.h"
 /************************************************
  SKELETON
  ************************************************/
@@ -72,6 +73,9 @@
 	CGFloat falloff;
 	CGFloat targetScale;
 	CGFloat scaleIncrement;
+	
+	Animator * tempoAnimator;
+	Animator * scaleAnimator;
 }
 @property (nonatomic, retain) Mesh * mesh;
 @property (nonatomic, retain) Joint * j0;
@@ -94,6 +98,8 @@
 -(void) animateScale: (CGFloat) t;
 -(void) animateScale: (CGFloat) target frames:(CGFloat) frames;
 -(void) translateVertices;
+
+-(void) animateToTempo:(CGFloat) value time:(CGFloat) time;
 
 @end
 

@@ -25,4 +25,5 @@
 -(void) parseXML;
 -(Bone*) findBone: (NSString *) boneName;
 -(void) animateBone: (NSString *) boneName value:(CGFloat) value;
+-(void) setBoneTempo: (NSString *) boneName value:(CGFloat) value time:(CGFloat) time;
 @end

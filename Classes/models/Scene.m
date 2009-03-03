@@ -82,5 +82,11 @@
 		}
 	}
 }
-
+-(void) setBoneTempo: (NSString *) boneName value:(CGFloat) value time:(CGFloat) time{
+	for(Bone * aBone in allBones){
+		if([aBone.name isEqual: boneName]){
+			[aBone animateToTempo: value time: time];
+		}
+	}
+}
 @end

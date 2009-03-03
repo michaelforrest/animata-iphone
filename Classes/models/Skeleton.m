@@ -155,6 +155,15 @@
 -(void) animateScale: (CGFloat) t{
 	scale = minScale + ((maxScale- minScale) * t);
 }
+
+-(void) animateToTempo:(CGFloat) value time:(CGFloat) aTime{
+	if(!tempoAnimator) tempoAnimator = [[Animator alloc] init:self	selector:@selector(updateTempo) startValue:tempo];
+	[tempoAnimator set:value time:aTime];
+}
+-(void) updateTempo{
+	self.tempo = tempoAnimator.currentValue;
+	
+}
 	
 -(void) translateVertices{
 	float x0 = j0.position.x;
